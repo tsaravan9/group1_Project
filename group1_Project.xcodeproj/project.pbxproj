@@ -17,8 +17,10 @@
 		4374CD85275363CE007D20CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD84275363CE007D20CD /* User.swift */; };
 		4374CD87275365B2007D20CD /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD86275365B2007D20CD /* Activity.swift */; };
 		4374CD89275365C9007D20CD /* ActivityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD88275365C9007D20CD /* ActivityDetails.swift */; };
-		4374CD91275475F9007D20CD /* ActivityDashBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD90275475F9007D20CD /* ActivityDashBoardController.swift */; };
 		4374CD9327548341007D20CD /* ActivitiesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD9227548341007D20CD /* ActivitiesDB.swift */; };
+		4374CD9527549DAA007D20CD /* ActivityDashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD9427549DAA007D20CD /* ActivityDashboardTableViewController.swift */; };
+		4374CD972754A0C6007D20CD /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD962754A0C6007D20CD /* ActivityCell.swift */; };
+		4374CD992754A739007D20CD /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD982754A739007D20CD /* ActivityDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,10 @@
 		4374CD84275363CE007D20CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4374CD86275365B2007D20CD /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		4374CD88275365C9007D20CD /* ActivityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetails.swift; sourceTree = "<group>"; };
-		4374CD90275475F9007D20CD /* ActivityDashBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDashBoardController.swift; sourceTree = "<group>"; };
 		4374CD9227548341007D20CD /* ActivitiesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDB.swift; sourceTree = "<group>"; };
+		4374CD9427549DAA007D20CD /* ActivityDashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDashboardTableViewController.swift; sourceTree = "<group>"; };
+		4374CD962754A0C6007D20CD /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		4374CD982754A739007D20CD /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +76,9 @@
 				4374CD6D27534348007D20CD /* AppDelegate.swift */,
 				4374CD6F27534348007D20CD /* SceneDelegate.swift */,
 				4374CD7127534348007D20CD /* ViewController.swift */,
-				4374CD90275475F9007D20CD /* ActivityDashBoardController.swift */,
+				4374CD9427549DAA007D20CD /* ActivityDashboardTableViewController.swift */,
+				4374CD962754A0C6007D20CD /* ActivityCell.swift */,
+				4374CD982754A739007D20CD /* ActivityDetailViewController.swift */,
 				4374CD7327534348007D20CD /* Main.storyboard */,
 				4374CD762753434A007D20CD /* Assets.xcassets */,
 				4374CD782753434A007D20CD /* LaunchScreen.storyboard */,
@@ -164,15 +170,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4374CD992754A739007D20CD /* ActivityDetailViewController.swift in Sources */,
 				4374CD87275365B2007D20CD /* Activity.swift in Sources */,
 				4374CD83275363B7007D20CD /* UsersDB.swift in Sources */,
+				4374CD972754A0C6007D20CD /* ActivityCell.swift in Sources */,
 				4374CD7227534348007D20CD /* ViewController.swift in Sources */,
 				4374CD6E27534348007D20CD /* AppDelegate.swift in Sources */,
 				4374CD9327548341007D20CD /* ActivitiesDB.swift in Sources */,
+				4374CD9527549DAA007D20CD /* ActivityDashboardTableViewController.swift in Sources */,
 				4374CD89275365C9007D20CD /* ActivityDetails.swift in Sources */,
 				4374CD85275363CE007D20CD /* User.swift in Sources */,
 				4374CD7027534348007D20CD /* SceneDelegate.swift in Sources */,
-				4374CD91275475F9007D20CD /* ActivityDashBoardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
