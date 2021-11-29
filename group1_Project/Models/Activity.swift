@@ -12,7 +12,7 @@ class Activity {
     let pricePerPerson:Double
     let activityDetails:ActivityDetails
     
-    init(name:String, pricePerPerson:Double, activityDetails:ActivityDetails){
+    init(_ name:String,_ pricePerPerson:Double,_ activityDetails:ActivityDetails){
         self.name = name
         self.pricePerPerson = pricePerPerson
         self.activityDetails = activityDetails

@@ -22,6 +22,12 @@ class UsersDataSource {
         return users
     }
     
-    
-
+    func getUserFromName(name:String) -> User?{
+        for user in self.users {
+            if (name == user.name){
+                return user
+            }
+        }
+        return nil
+    }
 }

@@ -8,19 +8,19 @@
 import Foundation
 
 class ActivityDetails{
-    let description:String = ""
-    let starRating:Float = 0
-    let hostName:String = ""
-    let imgSources:[String] = []
-    let hostContact:String = ""
-    var numberOfTicketsAvailable:Int = 0
+    let description:String
+    let starRating:Float
+    let hostName:String
+    let imgSources:[String]
+    let hostContact:String
+    var numberOfTicketsAvailable:Int = 5
     
 
-//    init (description:String,starRating:Float, hostName:String,imgSources:[String], hostContact:String) {
-//        self.description = description
-//        self.starRating = starRating
-//        self.hostName = hostName
-//        self.imgSources = imgSources
-//        self.hostContact = hostContact
-//    }
+    init (_ description:String,_ starRating:Float,_ hostName:String,_ imgSources:[String],_ hostContact:String) {
+        self.description = description
+        self.starRating = starRating
+        self.hostName = hostName
+        self.imgSources = imgSources
+        self.hostContact = hostContact
+    }
 }

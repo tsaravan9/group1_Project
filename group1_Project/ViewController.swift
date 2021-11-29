@@ -31,10 +31,17 @@ class ViewController: UIViewController {
     
     func gotoDashboardPage(){
         print(#function,"going to dashboard Page")
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextScreen = storyBoard.instantiateViewController(withIdentifier: "dashboard") as! ActivityDashBoardController
         self.navigationController?.pushViewController(nextScreen, animated: true)
     }
+    
+//    @objc func LogoutClicked(){
+//        userDefault.removeObject(forKey: USER_NAME)
+//        let storyBoard : UIStoryboard = UIStoryboard()
+//        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "login") as! ViewController
+//        self.navigationController?.pushViewController(nextScreen, animated: true)
+//    }
     
     //MARK: actions
     @IBAction func loginAction(_ sender: Any) {

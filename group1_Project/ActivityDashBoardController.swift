@@ -9,21 +9,23 @@ import UIKit
 
 class ActivityDashBoardController: UIViewController {
 
+    let USER_NAME:String = "username"
+    let userDefault = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(LogoutClicked))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func LogoutClicked(){
+        userDefault.removeObject(forKey: USER_NAME)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "login") as! ViewController
+        self.navigationController?.pushViewController(nextScreen, animated: true)
     }
-    */
+    
+    
 
 }
