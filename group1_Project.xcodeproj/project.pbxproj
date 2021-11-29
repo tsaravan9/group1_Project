@@ -17,6 +17,7 @@
 		4374CD85275363CE007D20CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD84275363CE007D20CD /* User.swift */; };
 		4374CD87275365B2007D20CD /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD86275365B2007D20CD /* Activity.swift */; };
 		4374CD89275365C9007D20CD /* ActivityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD88275365C9007D20CD /* ActivityDetails.swift */; };
+		4374CD91275475F9007D20CD /* ActivityDashBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD90275475F9007D20CD /* ActivityDashBoardController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4374CD84275363CE007D20CD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4374CD86275365B2007D20CD /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		4374CD88275365C9007D20CD /* ActivityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetails.swift; sourceTree = "<group>"; };
+		4374CD90275475F9007D20CD /* ActivityDashBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDashBoardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				4374CD762753434A007D20CD /* Assets.xcassets */,
 				4374CD782753434A007D20CD /* LaunchScreen.storyboard */,
 				4374CD7B2753434A007D20CD /* Info.plist */,
+				4374CD90275475F9007D20CD /* ActivityDashBoardController.swift */,
 			);
 			path = group1_Project;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				4374CD89275365C9007D20CD /* ActivityDetails.swift in Sources */,
 				4374CD85275363CE007D20CD /* User.swift in Sources */,
 				4374CD7027534348007D20CD /* SceneDelegate.swift in Sources */,
+				4374CD91275475F9007D20CD /* ActivityDashBoardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
