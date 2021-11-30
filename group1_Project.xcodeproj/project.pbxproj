@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3619456427556DEE00BE43E5 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619456327556DEE00BE43E5 /* FavoritesTableViewController.swift */; };
+		36194566275578D500BE43E5 /* FavoriteActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36194565275578D500BE43E5 /* FavoriteActivityCell.swift */; };
+		36194568275584DF00BE43E5 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36194567275584DF00BE43E5 /* PurchaseViewController.swift */; };
+		3619456A2755862B00BE43E5 /* PurchaseHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361945692755862B00BE43E5 /* PurchaseHistoryTableViewController.swift */; };
+		3619456C275587FE00BE43E5 /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3619456B275587FE00BE43E5 /* TicketCell.swift */; };
 		4374CD6E27534348007D20CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD6D27534348007D20CD /* AppDelegate.swift */; };
 		4374CD7027534348007D20CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD6F27534348007D20CD /* SceneDelegate.swift */; };
 		4374CD7227534348007D20CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374CD7127534348007D20CD /* ViewController.swift */; };
@@ -24,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3619456327556DEE00BE43E5 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		36194565275578D500BE43E5 /* FavoriteActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteActivityCell.swift; sourceTree = "<group>"; };
+		36194567275584DF00BE43E5 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		361945692755862B00BE43E5 /* PurchaseHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryTableViewController.swift; sourceTree = "<group>"; };
+		3619456B275587FE00BE43E5 /* TicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
 		4374CD6A27534348007D20CD /* group1_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = group1_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4374CD6D27534348007D20CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4374CD6F27534348007D20CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +93,11 @@
 				4374CD762753434A007D20CD /* Assets.xcassets */,
 				4374CD782753434A007D20CD /* LaunchScreen.storyboard */,
 				4374CD7B2753434A007D20CD /* Info.plist */,
+				3619456327556DEE00BE43E5 /* FavoritesTableViewController.swift */,
+				36194565275578D500BE43E5 /* FavoriteActivityCell.swift */,
+				36194567275584DF00BE43E5 /* PurchaseViewController.swift */,
+				361945692755862B00BE43E5 /* PurchaseHistoryTableViewController.swift */,
+				3619456B275587FE00BE43E5 /* TicketCell.swift */,
 			);
 			path = group1_Project;
 			sourceTree = "<group>";
@@ -173,6 +188,7 @@
 				4374CD992754A739007D20CD /* ActivityDetailViewController.swift in Sources */,
 				4374CD87275365B2007D20CD /* Activity.swift in Sources */,
 				4374CD83275363B7007D20CD /* UsersDB.swift in Sources */,
+				36194568275584DF00BE43E5 /* PurchaseViewController.swift in Sources */,
 				4374CD972754A0C6007D20CD /* ActivityCell.swift in Sources */,
 				4374CD7227534348007D20CD /* ViewController.swift in Sources */,
 				4374CD6E27534348007D20CD /* AppDelegate.swift in Sources */,
@@ -180,7 +196,11 @@
 				4374CD9527549DAA007D20CD /* ActivityDashboardTableViewController.swift in Sources */,
 				4374CD89275365C9007D20CD /* ActivityDetails.swift in Sources */,
 				4374CD85275363CE007D20CD /* User.swift in Sources */,
+				36194566275578D500BE43E5 /* FavoriteActivityCell.swift in Sources */,
+				3619456427556DEE00BE43E5 /* FavoritesTableViewController.swift in Sources */,
+				3619456A2755862B00BE43E5 /* PurchaseHistoryTableViewController.swift in Sources */,
 				4374CD7027534348007D20CD /* SceneDelegate.swift in Sources */,
+				3619456C275587FE00BE43E5 /* TicketCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
