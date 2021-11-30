@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     func gotoDashboardPage(){
         print(#function,"going to dashboard Page")
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let nextScreen = storyBoard.instantiateViewController(withIdentifier: "dashboard") as! ActivityDashboardTableViewController
         self.navigationController?.pushViewController(nextScreen, animated: true)
     }

@@ -1,14 +1,14 @@
 //
-//  ActivityCell.swift
+//  FavoriteActivityCell.swift
 //  group1_Project
 //
-//  Created by Graphic on 2021-11-29.
+//  Created by Jagsifat Makkar on 2021-11-29.
 //
 
+import Foundation
 import UIKit
 
-class ActivityCell: UITableViewCell {
-
+class FavoriteActivityCell : UITableViewCell{
     @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var activityTitle: UILabel!
     @IBOutlet weak var activityPricePerPerson: UILabel!
@@ -17,9 +17,6 @@ class ActivityCell: UITableViewCell {
         super.awakeFromNib()
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 0.75
-
-
-
         // Initialization code
     }
 
@@ -28,5 +25,4 @@ class ActivityCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

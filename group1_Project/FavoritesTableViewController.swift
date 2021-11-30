@@ -1,26 +1,23 @@
 //
-//  ActivityDashboardTableViewController.swift
+//  FavoritesViewController.swift
 //  group1_Project
 //
-//  Created by Graphic on 2021-11-29.
+//  Created by Jagsifat Makkar on 2021-11-29.
 //
 
 import UIKit
 
-class ActivityDashboardTableViewController: UITableViewController {
-    
+class FavoritesTableViewController: UITableViewController {
+
+    @IBOutlet var myTableView: UITableView!
     let USER_NAME:String = "username"
     let userDefault = UserDefaults.standard
-    let activitiesList = ActivitiesDataSource.shared.getActivitiesList()
+    var favList = UserDefaults.standard.array(forKey: "\(UserDefaults.standard.string(forKey: "username") ?? "").favorites") as? [String] ?? [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(LogoutClicked))
-        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(LogoutClicked))
-        let historyButton = UIBarButtonItem(title: "History", style: .plain, target: self, action: #selector(HistoryClicked))
-        self.navigationItem.rightBarButtonItems = [logoutButton, historyButton]
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Favorites", style: .plain, target: self, action: #selector(FavoritesClicked))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,18 +32,6 @@ class ActivityDashboardTableViewController: UITableViewController {
         let nextScreen = storyBoard.instantiateViewController(withIdentifier: "login") as! ViewController
         self.navigationController?.pushViewController(nextScreen, animated: true)
     }
-    
-    @objc func FavoritesClicked(){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "favoritesList") as! FavoritesTableViewController
-        self.navigationController?.pushViewController(nextScreen, animated: true)
-    }
-    
-    @objc func HistoryClicked(){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "ticketHistory") as! PurchaseHistoryTableViewController
-        self.navigationController?.pushViewController(nextScreen, animated: true)
-    }
 
     // MARK: - Table view data source
 
@@ -57,19 +42,20 @@ class ActivityDashboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return activitiesList.count
+        return favList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteActivityCell", for: indexPath) as! FavoriteActivityCell
 
         // Configure the cell...
-        let currentActivity = self.activitiesList[indexPath.row]
+        let currentActivityName = self.favList[indexPath.row]
+        let currentActivity = Activity(currentActivityName)
         cell.activityTitle.text = currentActivity.name
         cell.activityPricePerPerson.text = "Price: $\(currentActivity.pricePerPerson)/person"
         cell.activityImage.image = UIImage(named: currentActivity.activityDetails!.imgSources[0])
-        
+
         return cell
     }
     
@@ -80,46 +66,36 @@ class ActivityDashboardTableViewController: UITableViewController {
             return
         }
         
-        detailScreen.activity = self.activitiesList[indexPath.row]
+        let currentActivityName = self.favList[indexPath.row]
+        let currentActivity = Activity(currentActivityName)
+        detailScreen.activity = currentActivity
         self.navigationController?.pushViewController(detailScreen, animated: true)
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            self.favList.remove(at: indexPath.row)
+            guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+                return
+            }
+            UserDefaults.standard.set(favList, forKey: "\(loggedInUser).favorites")
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    
+    @IBAction func removeAllPressed(_ sender: Any){
+        guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+            return
+        }
+        favList = [String]()
+        UserDefaults.standard.set(favList, forKey: "\(loggedInUser).favorites")
+        self.myTableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     /*
     // MARK: - Navigation
 

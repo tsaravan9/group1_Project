@@ -1,25 +1,24 @@
 //
-//  ActivityCell.swift
+//  TicketCell.swift
 //  group1_Project
 //
-//  Created by Graphic on 2021-11-29.
+//  Created by Jagsifat Makkar on 2021-11-29.
 //
 
 import UIKit
 
-class ActivityCell: UITableViewCell {
+class TicketCell: UITableViewCell {
 
     @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var activityTitle: UILabel!
     @IBOutlet weak var activityPricePerPerson: UILabel!
-    
+    @IBOutlet weak var totalCost: UILabel!
+    @IBOutlet weak var numOfTickets: UILabel!
+    @IBOutlet weak var purchaserName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 0.75
-
-
-
         // Initialization code
     }
 
