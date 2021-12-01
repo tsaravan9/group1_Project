@@ -34,14 +34,8 @@ class ViewController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let nextScreen = storyBoard.instantiateViewController(withIdentifier: "dashboard") as! ActivityDashboardTableViewController
         self.navigationController?.pushViewController(nextScreen, animated: true)
+        self.navigationItem.backBarButtonItem?.isEnabled = false
     }
-    
-//    @objc func LogoutClicked(){
-//        userDefault.removeObject(forKey: USER_NAME)
-//        let storyBoard : UIStoryboard = UIStoryboard()
-//        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "login") as! ViewController
-//        self.navigationController?.pushViewController(nextScreen, animated: true)
-//    }
     
     //MARK: actions
     @IBAction func loginAction(_ sender: Any) {
@@ -53,6 +47,10 @@ class ViewController: UIViewController {
                             userDefault.set(user.name, forKey: USER_NAME)
                         }
                         gotoDashboardPage()
+                    }else if((user.email == email && user.pass != pass)){
+                        let alertController = UIAlertController(title: "Unable to proceed", message: "Please check your email and password", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 }
             }else{

@@ -28,9 +28,7 @@ class FavoritesTableViewController: UITableViewController {
     
     @objc func LogoutClicked(){
         userDefault.removeObject(forKey: USER_NAME)
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "login") as! ViewController
-        self.navigationController?.pushViewController(nextScreen, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: - Table view data source

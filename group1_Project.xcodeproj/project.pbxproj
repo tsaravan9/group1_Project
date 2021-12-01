@@ -63,6 +63,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		437195E12756CDB30081EB3D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4374CD7127534348007D20CD /* ViewController.swift */,
+				4374CD9427549DAA007D20CD /* ActivityDashboardTableViewController.swift */,
+				4374CD982754A739007D20CD /* ActivityDetailViewController.swift */,
+				36194567275584DF00BE43E5 /* PurchaseViewController.swift */,
+				361945692755862B00BE43E5 /* PurchaseHistoryTableViewController.swift */,
+				3619456327556DEE00BE43E5 /* FavoritesTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		437195E22756CEBF0081EB3D /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4374CD962754A0C6007D20CD /* ActivityCell.swift */,
+				36194565275578D500BE43E5 /* FavoriteActivityCell.swift */,
+				3619456B275587FE00BE43E5 /* TicketCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		4374CD6127534348007D20CD = {
 			isa = PBXGroup;
 			children = (
@@ -82,22 +105,15 @@
 		4374CD6C27534348007D20CD /* group1_Project */ = {
 			isa = PBXGroup;
 			children = (
+				437195E22756CEBF0081EB3D /* TableViewCells */,
+				437195E12756CDB30081EB3D /* Controllers */,
 				4374CD812753639E007D20CD /* Models */,
 				4374CD6D27534348007D20CD /* AppDelegate.swift */,
 				4374CD6F27534348007D20CD /* SceneDelegate.swift */,
-				4374CD7127534348007D20CD /* ViewController.swift */,
-				4374CD9427549DAA007D20CD /* ActivityDashboardTableViewController.swift */,
-				4374CD962754A0C6007D20CD /* ActivityCell.swift */,
-				4374CD982754A739007D20CD /* ActivityDetailViewController.swift */,
 				4374CD7327534348007D20CD /* Main.storyboard */,
 				4374CD762753434A007D20CD /* Assets.xcassets */,
 				4374CD782753434A007D20CD /* LaunchScreen.storyboard */,
 				4374CD7B2753434A007D20CD /* Info.plist */,
-				3619456327556DEE00BE43E5 /* FavoritesTableViewController.swift */,
-				36194565275578D500BE43E5 /* FavoriteActivityCell.swift */,
-				36194567275584DF00BE43E5 /* PurchaseViewController.swift */,
-				361945692755862B00BE43E5 /* PurchaseHistoryTableViewController.swift */,
-				3619456B275587FE00BE43E5 /* TicketCell.swift */,
 			);
 			path = group1_Project;
 			sourceTree = "<group>";

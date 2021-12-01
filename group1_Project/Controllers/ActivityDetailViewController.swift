@@ -19,6 +19,7 @@ class ActivityDetailViewController: UIViewController {
     @IBOutlet weak var activityDescription: UILabel!
     @IBOutlet weak var activityHostName: UILabel!
     @IBOutlet weak var activityHostContact: UILabel!
+    @IBOutlet weak var btnText: UIButton!
     
     @IBOutlet weak var activityPrice: UILabel!
     
@@ -33,35 +34,41 @@ class ActivityDetailViewController: UIViewController {
     
     @objc func LogoutClicked(){
         userDefault.removeObject(forKey: USER_NAME)
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "login") as! ViewController
-        self.navigationController?.pushViewController(nextScreen, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     private func displayDetails(){
         
         guard let receivedActivity = self.activity else{
-            print(#function, "Pokemon details unavailable form previous screen")
             self.activityTitle.text = "Unavailable"
-            self.activityDescription.text = "Pokemon details unavailable form previous screen"
+            self.activityDescription.text = "Unavailable"
             self.activityHostContact.text = "Unavailable"
             self.activityImageView.image = UIImage(named: "")
             return
         }
         
         self.activityTitle.text = receivedActivity.name
-        self.activityPrice.text = "Price: \(receivedActivity.pricePerPerson)/person"
+        self.activityPrice.text = "Price: $ \(receivedActivity.pricePerPerson)/person"
         self.activityDescription.text = receivedActivity.activityDetails!.description
         self.activityImageView.image = UIImage(named: receivedActivity.activityDetails!.imgSources[0])
         self.activityImageView2.image = UIImage(named: receivedActivity.activityDetails!.imgSources[1])
         self.activityHostName.text = "Host Name: \(receivedActivity.activityDetails!.hostName)"
-        self.activityHostContact.text = "Host Contact: \(receivedActivity.activityDetails!.hostContact)"
-        
+        self.activityHostContact.text = "Host Contact:"
+        self.btnText.titleLabel?.text = "\(receivedActivity.activityDetails!.hostContact)"
     }
     
     @IBAction func activityShareClicked(_ sender: Any) {
+        let shareContent = UIActivityViewController(activityItems: ["Check out this dope activity in Amsterdam! - \n\n\(self.activity!.name) \n\nPrice : $ \(self.activity!.pricePerPerson)/person"], applicationActivities: nil)
+        shareContent.popoverPresentationController?.sourceView = self.view
+        self.present(shareContent, animated: true, completion: nil)
     }
     
+    @IBAction func gotoDialer(_ sender: Any) {
+        if let url = URL(string: "tel://\(self.activity!.activityDetails?.hostContact ?? "1234567890")"),
+        UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
     
     /*
     // MARK: - Navigation
@@ -88,7 +95,7 @@ class ActivityDetailViewController: UIViewController {
         }
         favList.append(activity!.name)
         UserDefaults.standard.set(favList, forKey: "\(loggedInUser).favorites")
-        let alertController = UIAlertController(title: "SUCCESS", message: "Activity added to favorites!", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Hurray!!", message: "Activity added to favorites!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
