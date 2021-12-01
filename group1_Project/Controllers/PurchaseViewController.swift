@@ -14,6 +14,9 @@ class PurchaseViewController: UIViewController {
     @IBOutlet weak var numOfTickets: UILabel!
     @IBOutlet weak var ticketStepper: UIStepper!
     
+    let USER_NAME:String = "username"
+    let userDefault = UserDefaults.standard 
+    
     var activity : Activity? = nil
     
     override func viewDidLoad() {
@@ -22,11 +25,19 @@ class PurchaseViewController: UIViewController {
         activityName.text = activity!.name
         ticketStepper.maximumValue = 5
         ticketStepper.minimumValue = 1
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(LogoutClicked))
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func purchasePressed(_ sender: Any) {
+        
+        if username.text!.isEmpty{
+            let alertController = UIAlertController(title: "ERROR", message: "Purchaser name cannot be empty!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
         guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
             return
         }
@@ -38,8 +49,13 @@ class PurchaseViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @objc func LogoutClicked(){
+        userDefault.removeObject(forKey: USER_NAME)
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     @IBAction func stepperPressed(_ sender: Any) {
-        numOfTickets.text = String(ticketStepper.value)
+        numOfTickets.text = String(Int(Double(ticketStepper.value.description)!))
     }
     /*
     // MARK: - Navigation

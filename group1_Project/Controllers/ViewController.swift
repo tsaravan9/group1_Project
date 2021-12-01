@@ -18,6 +18,11 @@ class ViewController: UIViewController {
 //        userDefault.removeObject(forKey: USER_NAME)
         checkIfUserLoggedIn()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        textPass.text = ""
+        textEmail.text = ""
+    }
 
     func checkIfUserLoggedIn(){
         let username = userDefault.string(forKey: USER_NAME) ?? ""

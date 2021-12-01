@@ -22,11 +22,20 @@ class ActivityDetailViewController: UIViewController {
     @IBOutlet weak var btnText: UIButton!
     
     @IBOutlet weak var activityPrice: UILabel!
+    @IBOutlet weak var star1: UIImageView!
+    @IBOutlet weak var star2: UIImageView!
+    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var star4: UIImageView!
+    @IBOutlet weak var star5: UIImageView!
+    
+    var stars = [UIImageView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(LogoutClicked))
+        
+        stars = [star1, star2, star3, star4, star5]
 
         // Do any additional setup after loading the view.
         displayDetails()
@@ -55,6 +64,11 @@ class ActivityDetailViewController: UIViewController {
         self.activityHostName.text = "Host Name: \(receivedActivity.activityDetails!.hostName)"
         self.activityHostContact.text = "Host Contact:"
         self.btnText.titleLabel?.text = "\(receivedActivity.activityDetails!.hostContact)"
+        let numOfStars = receivedActivity.activityDetails!.starRating
+        for i in 0..<numOfStars{
+            stars[i].image = UIImage(systemName: "star.fill")
+            stars[i].tintColor = UIColor.systemBlue
+        }
     }
     
     @IBAction func activityShareClicked(_ sender: Any) {

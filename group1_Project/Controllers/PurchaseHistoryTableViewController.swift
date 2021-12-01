@@ -17,6 +17,9 @@ class PurchaseHistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //uncomment the below line to clear history
+        //clearHistory()
+        
         for i in ticketsList{
             print("\(i)")
         }
@@ -32,9 +35,7 @@ class PurchaseHistoryTableViewController: UITableViewController {
     
     @objc func LogoutClicked(){
         userDefault.removeObject(forKey: USER_NAME)
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let nextScreen = storyBoard.instantiateViewController(withIdentifier: "login") as! ViewController
-        self.navigationController?.pushViewController(nextScreen, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: - Table view data source
@@ -61,7 +62,7 @@ class PurchaseHistoryTableViewController: UITableViewController {
         cell.activityTitle.text = currentActivityName
         cell.activityPricePerPerson.text = "Price: $\(currentActivity.pricePerPerson)/person"
         cell.numOfTickets.text = ticketNameArr[1]
-        cell.purchaserName.text = ticketNameArr[3]
+        cell.purchaserName.text = ticketNameArr[2]
         cell.totalCost.text = "$" + String(Double(ticketNameArr[1])!*currentActivity.pricePerPerson)
         cell.activityImage.image = UIImage(named: currentActivity.activityDetails!.imgSources[0])
         
@@ -81,6 +82,16 @@ class PurchaseHistoryTableViewController: UITableViewController {
         let currentActivity = Activity(currentActivityName)
         detailScreen.activity = currentActivity
         self.navigationController?.pushViewController(detailScreen, animated: true)
+    }
+    
+    //this function is only used when purchase history needs to be cleared for any reason
+    private func clearHistory(){
+        guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+            return
+        }
+        ticketsList = [String]()
+        UserDefaults.standard.set(ticketsList, forKey: "\(loggedInUser).tickets")
+        self.myTableView.reloadData()
     }
 
 }
