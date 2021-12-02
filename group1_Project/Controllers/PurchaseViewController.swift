@@ -37,16 +37,17 @@ class PurchaseViewController: UIViewController {
             let alertController = UIAlertController(title: "ERROR", message: "Purchaser name cannot be empty!", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
+        }else{
+            guard let loggedInUser = UserDefaults.standard.string(forKey: "loggedInUser") else {
+                return
+            }
+            var tickets = UserDefaults.standard.array(forKey: "\(loggedInUser).tickets") as? [String] ?? [String]()
+            tickets.append("\(activity!.name).\(numOfTickets.text ?? "1").\(username.text ?? "")")
+            UserDefaults.standard.set(tickets, forKey: "\(loggedInUser).tickets")
+            let alertController = UIAlertController(title: "SUCCESS", message: "Tickets purchased for the activity!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
-        guard let loggedInUser = UserDefaults.standard.string(forKey: "loggedInUser") else {
-            return
-        }
-        var tickets = UserDefaults.standard.array(forKey: "\(loggedInUser).tickets") as? [String] ?? [String]()
-        tickets.append("\(activity!.name).\(numOfTickets.text ?? "1").\(username.text ?? "")")
-        UserDefaults.standard.set(tickets, forKey: "\(loggedInUser).tickets")
-        let alertController = UIAlertController(title: "SUCCESS", message: "Tickets purchased for the activity!", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func LogoutClicked(){
