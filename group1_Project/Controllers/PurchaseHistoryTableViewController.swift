@@ -12,7 +12,7 @@ class PurchaseHistoryTableViewController: UITableViewController {
     @IBOutlet var myTableView: UITableView!
     let USER_NAME:String = "username"
     let userDefault = UserDefaults.standard
-    var ticketsList = UserDefaults.standard.array(forKey: "\(UserDefaults.standard.string(forKey: "username") ?? "").tickets") as? [String] ?? [String]()
+    var ticketsList = UserDefaults.standard.array(forKey: "\(UserDefaults.standard.string(forKey: "loggedInUser") ?? "").tickets") as? [String] ?? [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class PurchaseHistoryTableViewController: UITableViewController {
     }
     
     @objc func LogoutClicked(){
-        userDefault.removeObject(forKey: USER_NAME)
+        userDefault.set("", forKey: "loggedInUser")
         self.navigationController?.popToRootViewController(animated: true)
     }
 
@@ -86,7 +86,7 @@ class PurchaseHistoryTableViewController: UITableViewController {
     
     //this function is only used when purchase history needs to be cleared for any reason
     private func clearHistory(){
-        guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+        guard let loggedInUser = UserDefaults.standard.string(forKey: "loggedInUser") else {
             return
         }
         ticketsList = [String]()

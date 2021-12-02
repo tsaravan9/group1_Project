@@ -2,7 +2,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let USER_NAME:String = "username"
+//    let USER_NAME:String = "username"
     
     let userDefault = UserDefaults.standard
     let users = UsersDataSource.shared.getUserList()
@@ -25,12 +25,10 @@ class ViewController: UIViewController {
     }
 
     func checkIfUserLoggedIn(){
-        let username = userDefault.string(forKey: USER_NAME) ?? ""
-        print(#function,"\(username)")
-        if (username != ""){
+        let username = userDefault.string(forKey: "loggedInUser") ?? ""
+        let rememberMe = userDefault.string(forKey: "\(username).rememberMe") ?? ""
+        if rememberMe == "on"{
             gotoDashboardPage()
-        }else{
-            print("no user data in userDefaults")
         }
     }
     
@@ -49,8 +47,12 @@ class ViewController: UIViewController {
                 for user in users {
                     if(user.email == email && user.pass == pass){
                         if(self.isRememberSelected.isOn){
-                            userDefault.set(user.name, forKey: USER_NAME)
+                            userDefault.set("on", forKey: "\(user.name).rememberMe")
                         }
+                        else{
+                            userDefault.set("off", forKey: "\(user.name).rememberMe")
+                        }
+                        userDefault.set(user.name, forKey: "loggedInUser")
                         gotoDashboardPage()
                     }else if((user.email == email && user.pass != pass)){
                         let alertController = UIAlertController(title: "Unable to proceed", message: "Please check your email and password", preferredStyle: .alert)

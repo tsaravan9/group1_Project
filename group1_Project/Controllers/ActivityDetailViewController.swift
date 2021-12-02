@@ -42,7 +42,7 @@ class ActivityDetailViewController: UIViewController {
     }
     
     @objc func LogoutClicked(){
-        userDefault.removeObject(forKey: USER_NAME)
+        userDefault.set("", forKey: "loggedInUser")
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -95,7 +95,7 @@ class ActivityDetailViewController: UIViewController {
     */
 
     @IBAction func favoritePressed(_ sender: Any) {
-        guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+        guard let loggedInUser = UserDefaults.standard.string(forKey: "loggedInUser") else {
             return
         }
         var favList = UserDefaults.standard.array(forKey: "\(loggedInUser).favorites") as? [String] ?? [String]()

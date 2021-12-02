@@ -38,7 +38,7 @@ class PurchaseViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
-        guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+        guard let loggedInUser = UserDefaults.standard.string(forKey: "loggedInUser") else {
             return
         }
         var tickets = UserDefaults.standard.array(forKey: "\(loggedInUser).tickets") as? [String] ?? [String]()
@@ -50,7 +50,7 @@ class PurchaseViewController: UIViewController {
     }
     
     @objc func LogoutClicked(){
-        userDefault.removeObject(forKey: USER_NAME)
+        userDefault.set("", forKey: "loggedInUser")
         self.navigationController?.popToRootViewController(animated: true)
     }
     

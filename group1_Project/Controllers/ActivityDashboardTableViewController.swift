@@ -16,7 +16,7 @@ class ActivityDashboardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let alertController = UIAlertController(title: "Greetings!", message: "Welcome to Amsterdam, \(userDefault.string(forKey: "username") ?? "") :)", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Greetings!", message: "Welcome to Amsterdam, \(userDefault.string(forKey: "loggedInUser") ?? "") :)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Proceed", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
 
@@ -34,7 +34,7 @@ class ActivityDashboardTableViewController: UITableViewController {
     }
     
     @objc func LogoutClicked(){
-        userDefault.removeObject(forKey: USER_NAME)
+        userDefault.set("", forKey: "loggedInUser")
         self.navigationController?.popToRootViewController(animated: true)
     }
     

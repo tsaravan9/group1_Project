@@ -12,7 +12,7 @@ class FavoritesTableViewController: UITableViewController {
     @IBOutlet var myTableView: UITableView!
     let USER_NAME:String = "username"
     let userDefault = UserDefaults.standard
-    var favList = UserDefaults.standard.array(forKey: "\(UserDefaults.standard.string(forKey: "username") ?? "").favorites") as? [String] ?? [String]()
+    var favList = UserDefaults.standard.array(forKey: "\(UserDefaults.standard.string(forKey: "loggedInUser") ?? "").favorites") as? [String] ?? [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,10 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     @objc func LogoutClicked(){
-        userDefault.removeObject(forKey: USER_NAME)
+        userDefault.set("", forKey: "loggedInUser")
         self.navigationController?.popToRootViewController(animated: true)
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,7 +74,7 @@ class FavoritesTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             self.favList.remove(at: indexPath.row)
-            guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+            guard let loggedInUser = UserDefaults.standard.string(forKey: "loggedInUser") else {
                 return
             }
             UserDefaults.standard.set(favList, forKey: "\(loggedInUser).favorites")
@@ -86,7 +86,7 @@ class FavoritesTableViewController: UITableViewController {
     
     
     @IBAction func removeAllPressed(_ sender: Any){
-        guard let loggedInUser = UserDefaults.standard.string(forKey: "username") else {
+        guard let loggedInUser = UserDefaults.standard.string(forKey: "loggedInUser") else {
             return
         }
         favList = [String]()
